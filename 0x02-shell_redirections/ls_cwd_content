@@ -13,3 +13,19 @@ drwxrwxr-x 6 vagrant vagrant 4096 Sep 27 17:57 ..
 -rw-rw-r-- 1 vagrant vagrant   79 Sep 27 17:59 README.md
 -rw-rw-r-- 1 vagrant vagrant   12 Sep 27 20:31 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
 -rw-rw-r-- 1 vagrant vagrant    0 Sep 27 20:45 ls_cwd_content
+total 60
+drwxrwxr-x 2 vagrant vagrant 4096 Sep 27 20:49 .
+drwxrwxr-x 6 vagrant vagrant 4096 Sep 27 17:57 ..
+-rwxrw-r-- 1 vagrant vagrant   32 Sep 27 18:10 0-hello_world
+-rwxrw-r-- 1 vagrant vagrant   28 Sep 27 18:23 1-confused_smiley
+-rwxrw-r-- 1 vagrant vagrant   28 Sep 27 18:32 2-hellofile
+-rwxrw-r-- 1 vagrant vagrant   39 Sep 27 19:19 3-twofiles
+-rwxrw-r-- 1 vagrant vagrant   35 Sep 27 19:23 4-lastlines
+-rwxrw-r-- 1 vagrant vagrant   35 Sep 27 19:24 5-firstlines
+-rwxrw-r-- 1 vagrant vagrant   40 Sep 27 19:37 6-third_line
+-rwxrw-r-- 1 vagrant vagrant   78 Sep 27 19:58 7-file
+-rwxrw-r-- 1 vagrant vagrant   37 Sep 27 20:45 8-cwd_state
+-rw-rw-r-- 1 vagrant vagrant   37 Sep 27 20:49 9-duplicate_last_line
+-rw-rw-r-- 1 vagrant vagrant   79 Sep 27 17:59 README.md
+-rw-rw-r-- 1 vagrant vagrant   12 Sep 27 20:31 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
+-rw-rw-r-- 1 vagrant vagrant  848 Sep 27 20:45 ls_cwd_content
