@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Display number from 1 to 20
+n=1
+while [ $n -le 20 ]
+do
+	echo $n
+	case $n in
+		4)
+			echo "bad luck from China"
+			;;
+		9)
+			echo "bad luck from Japan"
+			;;
+		17)
+			echo "bad luck from Italy"
+			;;
+	esac
+	((n++))
+done
