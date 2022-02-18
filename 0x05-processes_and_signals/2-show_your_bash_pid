@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that displays lines containing the bash in all current processes.
+# shellcheck disable=SC2009
+ps -aux --forest | grep 'bash'
