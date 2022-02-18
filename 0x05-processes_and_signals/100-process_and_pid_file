@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# ******** SIGNAL HANDLING ******** #
+
+# Creates the file /var/run/myscript.pid containing its PID
+echo $BASHPID > /var/run/myscript.pid
+# Displays Y U no love me?! when receiving a SIGINT signal
+trap "echo 'Y U no love me?!'" SIGINT
+# Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
+trap "rm -f /var/run/myscript.pid; exit" SIGQUIT
+# Displays I hate the kill command when receiving a SIGTERM signal
+trap "echo 'I hate the kill command'; rm -f /var/run/myscript.pid; exit" SIGTERM
+
+# Displays To infinity and beyond indefinitely
+while :
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
