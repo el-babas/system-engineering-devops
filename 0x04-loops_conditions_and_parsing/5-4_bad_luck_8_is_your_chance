@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times [While], but for the 9th iteration, displays Best School and then Hi
+n=1
+while [ $n -le 10 ]
+do
+	if [ $n -eq 4 ]
+	then
+		echo "bad luck"
+	elif [ $n -eq 8 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	n=$((n + 1))
+done
