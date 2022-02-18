@@ -7,9 +7,9 @@ echo $$ > /var/run/myscript.pid
 # Displays Y U no love me?! when receiving a SIGINT signal
 trap "echo 'Y U no love me?!'" SIGINT
 # Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
-trap "rm -f /var/run/myscript.pid; exit" SIGQUIT
+trap "rm -f /var/run/myscript.pid" SIGQUIT
 # Displays I hate the kill command when receiving a SIGTERM signal
-trap "echo 'I hate the kill command'; rm -f /var/run/myscript.pid; exit" SIGTERM
+trap "echo 'I hate the kill command'; rm -f /var/run/myscript.pid" SIGTERM
 
 # Displays To infinity and beyond indefinitely
 while :
