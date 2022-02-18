@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that stops 4-to_infinity_and_beyond process (You cannot use kill or killall).
+# The pkill command is similar to the pgrep command, in that it will kill a process based on the process name
+pkill -f '4-to_infinity_and_beyond'
