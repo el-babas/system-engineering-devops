@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+## Install nginx web server.
+
+### Update operating system packages.
+sudo apt-get -y update
+### Install nginx.
+sudo apt-get -y install nginx
+### Add permission modify /var/www
+sudo chown -R ubuntu /var/www
+### Change de defaul content of index.html for nginx.
+echo "Hello World" > /var/www/html/index.nginx-debian.html
+### Start service nginx.
+sudo service nginx start
