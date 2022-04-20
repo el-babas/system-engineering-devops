@@ -1,6 +1,6 @@
 # Install Nginx web server (All previous puppet)
 
-exec {'install':
+exec {'install Nginx and redirect_me':
   provider => shell,
   command  => 'sudo apt-get -y update ;\
                 sudo apt-get -y install nginx ;\
