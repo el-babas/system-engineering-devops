@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+## Install your load balancer (https://haproxy.debian.net/)
+
+### Install (software-properties-common)
+#### This software provides an abstraction of the used apt repositories. It allows you to easily manage your distribution and independent software vendor software sources.
+#### In practice that means it provides some useful scripts for adding and removing PPAs.
+sudo apt-get -y install software-properties-common
+
+### Adding PPA (vbernat/haproxy-2.4)
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.4
+
+### Update operating system packages.
+sudo apt-get -y update
+
+### Install load balancer.
+sudo apt-get -y install haproxy=2.4.\*
+
+### Add "ubuntu" user as owner
+sudo chown -R ubuntu /etc/haproxy/
+
+### Configure HAproxy so that it send traffic to web-01 and web-02
+### Distribute requests using a roundrobin algorithm
+echo -e "\n# Configure frontend (MyFrontend) listen all *:80 and solve with backend (MyServers_01)\
+\nfrontend MyFrontend\
+\n\tbind *:80\
+\n\tmode http\
+\n\tdefault_backend MyServers_01\
+\n\
+\n# Configure all server availables for frontend (MyFrontend)\
+\nbackend MyServers_01\
+\n\tbalance roundrobin\
+\n\tserver 3716-web-01 35.196.245.112:80 check\
+\n\tserver 3716-web-02 54.196.150.231:80 check" >> /etc/haproxy/haproxy.cfg
+
+### Start service.
+sudo service haproxy restart
