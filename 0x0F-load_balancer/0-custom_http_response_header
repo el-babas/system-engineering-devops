@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+## Install nginx web server and create Error page.
+
+### Update operating system packages.
+sudo apt-get -y update
+### Install nginx.
+sudo apt-get -y install nginx
+### Add permission modify /var/www
+sudo chown -R ubuntu /var/www
+### Change de defaul content of index.html for nginx.
+echo "Hello World" > /var/www/html/index.nginx-debian.html
+### Create simple error 404 page.
+echo "Ceci n'est pas une page" > /var/www/html/error_simple.html
+### The redirection must be a “301 Moved Permanently”.
+sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/cristhian1107 permanent;/" /etc/nginx/sites-available/default
+### The redirection to Error page.
+sudo sed -i "s/^server\s{/server {\n\terror_page 404 \/error_simple.html;/1" /etc/nginx/sites-available/default
+### Configure Nginx so that its HTTP response contains a custom header ¿/etc/nginx/sites-available/default or /etc/nginx/nginx.conf?.
+sudo sed -i "s/^server\s{/server {\n\tadd_header X-Served-By $HOSTNAME;/1" /etc/nginx/sites-available/default
+### Start service nginx.
+sudo service nginx restart
