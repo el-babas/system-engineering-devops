@@ -20,14 +20,14 @@ sudo chown -R ubuntu /etc/haproxy/
 
 ### Configure HAproxy so that it send traffic to web-01 and web-02
 ### Distribute requests using a roundrobin algorithm
-echo -e "\n# Configure frontend (MyFrontend) listen all *:80 and solve with backend (MyServers_01)\
-\nfrontend MyFrontend\
+echo -e "\n# Configure frontend (http) listen all *:80 and solve with backend (my-servers)\
+\nfrontend http\
 \n\tbind *:80\
 \n\tmode http\
-\n\tdefault_backend MyServers_01\
+\n\tdefault_backend my-servers\
 \n\
-\n# Configure all server availables for frontend (MyFrontend)\
-\nbackend MyServers_01\
+\n# Configure all server availables for frontend (http)\
+\nbackend my-servers\
 \n\tbalance roundrobin\
 \n\tserver 3716-web-01 35.196.245.112:80 check\
 \n\tserver 3716-web-02 54.196.150.231:80 check" >> /etc/haproxy/haproxy.cfg
