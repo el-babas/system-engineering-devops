@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+## Nginx must be running, and listening on port 80 of all the server’s active IPv4 IPs.
+
+###* Enable port 80 in file default.
+sudo sed -i "s/listen 8080 /listen 80 /" /etc/nginx/sites-enabled/default
+###* Enable port 80 in file default (all ip).
+sudo sed -i "s/listen \[::\]:8080 /listen \[::\]:80 /" /etc/nginx/sites-enabled/default
+###* Restart service nginx
+sudo service nginx restart
