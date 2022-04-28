@@ -2,4 +2,4 @@
 ## Nginx must be running, and listening on port 80 of all the server’s active IPv4 IPs (short and sweet).
 sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
 sudo service nginx restart
-sudo service nginx stop
+sudo pkill -1 nginx
