@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+## Steps to install and configuration on SSL certificate in HAproxy.
+
+###* Create variable
+SDWWW=www.cristhian.tech
+echo $SDWWW
+###* Install certbot
+sudo snap install --classic certbot
+sudo service haproxy stop
+###* Try get certificate (test)
+sudo certbot certonly --dry-run --standalone -d $SDWWW --non-interactive --agree-tos --email cristhian.cjaa@gmail.com
+###* Get certificate
+sudo certbot certonly --standalone -d $SDWWW --non-interactive --agree-tos --email cristhian.cjaa@gmail.com
+###* Concat keys
+sudo cat /etc/letsencrypt/live/$SDWWW/fullchain.pem /etc/letsencrypt/live/$SDWWW/privkey.pem | sudo tee /etc/letsencrypt/live/$SDWWW/haproxy.pem
