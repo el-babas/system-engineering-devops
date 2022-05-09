@@ -4,3 +4,5 @@ sudo ufw enable
 sudo ufw disable
 # estados de puertos
 sudo ufw status verbose
+# Verificar configuracion
+sudo vi /etc/ufw/before.rules
