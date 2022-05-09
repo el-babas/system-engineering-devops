@@ -1,0 +1,6 @@
+# habilitar ufw
+sudo ufw enable
+# desabilitar ufw
+sudo ufw disable
+# estados de puertos
+sudo ufw status verbose
