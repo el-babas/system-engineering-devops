@@ -1,0 +1,15 @@
+https://computingforgeeks.com/how-to-install-mysql-on-ubuntu-focal/
+https://www.vultr.com/docs/how-to-install-mysql-5-7-on-ubuntu-20-04/
+
+## Install MySQL 5.7.* in Ubuntu Server.
+sudo apt update
+sudo apt install wget -y
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+sudo apt-get update
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv- 467B942D3A79BD29
+sudo apt-get update
+sudo apt-cache policy mysql-server
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+sudo mysql_secure_installation
+mysql -u root -p
