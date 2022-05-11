@@ -1,0 +1,6 @@
+# In Mysql Shell.
+mysql -u root -p
+CREATE USER IF NOT EXISTS holberton_user@localhost IDENTIFIED BY 'projectcorrection280hbtn';
+## SET GLOBAL validate_password_policy=LOW : MEDIUM
+GRANT REPLICATION CLIENT on *.* TO holberton_user@localhost;
+mysql -uholberton_user -p -e "SHOW GRANTS FOR 'holberton_user'@'localhost'"
