@@ -1,38 +1,27 @@
 #!/usr/bin/python3
 """
-HOW to Fetch Internet Resources Using The urllib Package.
+HOW to Fetch Internet Resources Using The requests Package.
 """
-import json
+import requests
 import sys
-import urllib.request
 
 
 def get_api_request(user):
     """
-    Get info in JSON of the API url with urllib Package.
+    Get info in JSON of the API url with requests Package.
     """
     url = 'https://jsonplaceholder.typicode.com/'
 
     # Get info user.
     path = 'users/'
-    with urllib.request.urlopen('{}{}{}'.format(url, path, user)) as response:
-        data = response.read().decode()
-        try:
-            d_info = json.loads(data)
-        except BaseException:
-            d_info = None
-
+    data = requests.get('{}{}{}'.format(url, path, user))
+    d_info = data.json()
     print('Employee {} is done with tasks'.format(d_info['name']), end='')
 
     # Get info jobs for the user.
     path = 'todos?userId='
-    with urllib.request.urlopen('{}{}{}'.format(url, path, user)) as response:
-        data = response.read().decode()
-        try:
-            l_task = json.loads(data)
-        except BaseException:
-            l_task = None
-
+    data = requests.get('{}{}{}'.format(url, path, user))
+    l_task = data.json()
     l_completed = list(filter(lambda item: item['completed'], l_task))
     print("({}/{}):".format(len(l_completed), len(l_task)))
     for task in l_completed:
