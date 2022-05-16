@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-    HOWTO Fetch Internet Resources Using The urllib Package.
+HOW to Fetch Internet Resources Using The urllib Package.
 """
 import json
 import sys
@@ -8,6 +8,9 @@ import urllib.request
 
 
 def get_api_request(user):
+    """
+    Get info in JSON of the API url with urllib Package.
+    """
     url = 'https://jsonplaceholder.typicode.com/'
 
     # Get info user.
@@ -18,6 +21,7 @@ def get_api_request(user):
             d_info = json.loads(data)
         except BaseException:
             d_info = None
+
     print('Employee {} is done with tasks'.format(d_info['name']), end='')
 
     # Get info jobs for the user.
@@ -28,6 +32,7 @@ def get_api_request(user):
             l_task = json.loads(data)
         except BaseException:
             l_task = None
+
     l_completed = list(filter(lambda item: item['completed'], l_task))
     print("({}/{}):".format(len(l_completed), len(l_task)))
     for task in l_completed:
