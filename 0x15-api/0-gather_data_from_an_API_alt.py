@@ -22,7 +22,7 @@ def get_api_request(user):
     path = 'todos?userId='
     data = requests.get('{}{}{}'.format(url, path, user))
     l_task = data.json()
-    l_completed = list(filter(lambda item: item['completed' is True], l_task))
+    l_completed = list(filter(lambda item: item['completed'], l_task))
     print("({}/{}):".format(len(l_completed), len(l_task)))
     for task in l_completed:
         print("\t {}".format(task['title']))
