@@ -36,7 +36,7 @@ def get_api_request(user):
     for task in l_task:
         l_csv.append([
                         user,
-                        d_info['name'],
+                        d_info['username'],
                         task['completed'],
                         task['title']
                         ])
