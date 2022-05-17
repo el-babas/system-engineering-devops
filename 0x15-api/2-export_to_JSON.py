@@ -39,7 +39,7 @@ def get_api_request(user):
                         "username": d_info['username'],
                     })
 
-    d_task = {str(user): l_task}
+    d_task = {str(user): l_json}
     filename = '{}.json'.format(user)
     with open(filename, mode='w') as json_file:
         json.dump(d_task, json_file)
