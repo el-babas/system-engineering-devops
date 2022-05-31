@@ -21,6 +21,6 @@ def top_ten(subreddit):
     api_res = requests.get(api_url, headers=api_header, allow_redirects=False)
     if api_res.status_code != 200:
         print(None)
-    api_data = (api_res.json()).get('data')
+    api_data = api_res.json().get('data')
     for children in api_data.get('children'):
-        print((children.get('data')).get('title'))
+        print(children.get('data').get('title'))
