@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     """Function that queries the Reddit API by Reddit subscriber.
 
     Args:
-        subreddit (string): Reddit subscriber. 
+        subreddit (string): Reddit subscriber.
 
     Returns:
         int: The number of subscribers.
@@ -24,4 +24,5 @@ def number_of_subscribers(subreddit):
     if api_res.status_code != 200:
         return 0
     api_json = api_res.json()
+
     return api_json['data']['subscribers']
