@@ -63,7 +63,7 @@ def count_words(subreddit, word_list):
 
     # Dictionary containing the words and repetitions
     for word in word_list:
-        dict_words[word] = 0
+        dict_words[word.lower()] = 0
 
     recurse(subreddit, dict_words)
     # ({k: v for k, v in sorted(dict_words.items(), key=lambda item: item[1])})
