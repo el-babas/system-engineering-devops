@@ -39,7 +39,6 @@ def recurse(subreddit, dict_words, after=None):
                             api_url,
                             headers=api_header,
                             params=api_params,
-                            allow_redirects=False
                           )
     if api_res.status_code != 200:
         return(None)
@@ -55,7 +54,7 @@ def recurse(subreddit, dict_words, after=None):
 
     if after is None:
         return
-    return recurse(subreddit, dict_words, after)
+    recurse(subreddit, dict_words, after)
 
 
 def count_words(subreddit, word_list):
