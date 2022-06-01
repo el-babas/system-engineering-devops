@@ -61,11 +61,12 @@ def recurse(subreddit, dict_words, after=None):
 def count_words(subreddit, word_list):
     dict_words = dict()
     dict_clear = dict()
+    list_words = list()
 
     # Dictionary containing the words and repetitions
     for word in word_list:
         dict_words[word] = 0
-    
+
     for word in word_list:
         dict_clear[word.lower()] = 0
 
@@ -73,12 +74,34 @@ def count_words(subreddit, word_list):
 
     for key in dict_words:
         if key.lower() in dict_clear.keys():
-                dict_clear[key.lower()] += dict_words[key]
+            dict_clear[key.lower()] += dict_words[key]
 
     # ({k: v for k, v in sorted(dict_words.items(), key=lambda item: item[1])})
     list_sorted = sorted(dict_clear.items(), key=lambda item: item[1])
     list_sorted.reverse()
+    # ?print(list_sorted)
 
+    dict_repeat = dict()
+    list_repeat = list()
+    current = 0
     for dupla in list_sorted:
-        if dupla[1] != 0:
-            print("{}: {}".format(dupla[0], dupla[1]))
+        if current == 0:
+            current = dupla[1]
+        if current == dupla[1]:
+            list_repeat.append(dupla[0])
+            dict_repeat[current] = list_repeat
+        else:
+            current = dupla[1]
+            list_repeat = list()
+            list_repeat.append(dupla[0])
+            dict_repeat[current] = list_repeat
+
+    # ?print(dict_repeat)
+    for k, v in dict_repeat.items():
+        if k != 0:
+            if len(v) > 1:
+                v.sort()
+                for w in v:
+                    print("{}: {}".format(w, k))
+            else:
+                print("{}: {}".format(v[0], k))
