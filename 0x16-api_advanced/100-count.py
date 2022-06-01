@@ -38,7 +38,7 @@ def recurse(subreddit, dict_words, after=None):
     api_res = requests.get(
                             api_url,
                             headers=api_header,
-                            params=api_params,
+                            params=api_params
                           )
     if api_res.status_code != 200:
         return(None)
