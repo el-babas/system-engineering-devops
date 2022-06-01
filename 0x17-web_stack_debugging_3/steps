@@ -1,0 +1,8 @@
+# Verificar los procesos
+> ps auxf
+# Verificar que puertos estan habilitados
+> netstat -tlpn| grep apache
+# Hacer seguimiento del procesos por pid
+> strace -p <pid>
+# Hacer solicitudes para capturar
+> grep -sI 127.0.0.1:80
