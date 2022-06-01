@@ -59,6 +59,17 @@ def recurse(subreddit, dict_words, after=None):
 
 
 def count_words(subreddit, word_list):
+    """Function that queries the Reddit API,
+    parses the title of all hot articles,
+    and prints a sorted count of given keywords
+    (case-insensitive, delimited by spaces.
+    Javascript should count as javascript,
+    but java should not).
+
+    Args:
+        subreddit (str): Reddit subscriber.
+        word_list (list): Wordkeys.
+    """
     dict_words = dict()
     dict_clear = dict()
     list_words = list()
