@@ -71,22 +71,29 @@ def count_words(subreddit, word_list):
     """
     dict_words = dict()
     dict_clear = dict()
-    list_words = list()
 
     # Dictionary containing the words and repetitions
-    for word in word_list:
-        dict_words[word] = 0
 
     for word in word_list:
         dict_clear[word.lower()] = 0
+        if word.lower() in dict_clear.keys():
+            if dict_words.get(word.lower()) is None:
+                dict_words[word.lower()] = 1
+            else:
+                dict_words[word.lower()] += 1
+    # print(dict_words)
 
-    recurse(subreddit, dict_words)
+    recurse(subreddit, dict_clear)
 
-    for key in dict_words:
-        if key.lower() in dict_clear.keys():
-            dict_clear[key.lower()] += dict_words[key]
+    # for key in dict_words:
+    #     if key.lower() in dict_clear.keys():
+    #         dict_clear[key.lower()] += dict_words[key]
 
     # ({k: v for k, v in sorted(dict_words.items(), key=lambda item: item[1])})
+
+    for k, v in dict_clear.items():
+        dict_clear[k] = v * dict_words[k]
+
     list_sorted = sorted(dict_clear.items(), key=lambda item: item[1])
     list_sorted.reverse()
     # ?print(list_sorted)
