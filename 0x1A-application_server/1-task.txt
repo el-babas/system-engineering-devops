@@ -8,3 +8,10 @@ Create the WSGI Entry Point
 2-task
 
 Modify path  /etc/nginx/sites-available/default add new location.
+
+
+Verificar 
+sudo nginx -t --> Revisa los archivos de configuracion.
+journalctl -xe --> log de error
+
+date "+%H:%M:%S   %d/%m/%y"
