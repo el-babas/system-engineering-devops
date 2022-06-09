@@ -18,5 +18,12 @@ date "+%H:%M:%S   %d/%m/%y"
 
 4-task
 
+#!!!!!!!!!!!!!!!!!!!! agregar variables en sudo vim /etc/environment !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Instalar todos lo paquetes del proyecto si no muestra informacion verfica package MySQLdb mediante la console.py
 > sudo apt-get install -y python3-mysqldb
+
+5-task 
+add static 
+location /static {
+                alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static/;
+}
