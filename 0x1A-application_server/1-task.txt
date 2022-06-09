@@ -15,3 +15,8 @@ sudo nginx -t --> Revisa los archivos de configuracion.
 journalctl -xe --> log de error
 
 date "+%H:%M:%S   %d/%m/%y"
+
+4-task
+
+Instalar todos lo paquetes del proyecto si no muestra informacion verfica package MySQLdb mediante la console.py
+> sudo apt-get install -y python3-mysqldb
