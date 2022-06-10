@@ -27,3 +27,7 @@ add static
 location /static {
                 alias /home/ubuntu/AirBnB_clone_v4/web_dynamic/static/;
 }
+
+6-Task 
+## Create a systemd Unit File
+sudo nano /etc/systemd/system/myproject.service
