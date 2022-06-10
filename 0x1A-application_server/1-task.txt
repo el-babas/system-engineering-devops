@@ -31,3 +31,9 @@ location /static {
 6-Task 
 ## Create a systemd Unit File
 sudo nano /etc/systemd/system/myproject.service
+
+Despues ejecutar 
+
+sudo systemctl daemon-reload
+sudo systemctl restart gunicorn.service
+sudo systemctl status gunicorn.service
